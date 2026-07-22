@@ -721,11 +721,31 @@
     #${TOGGLE_ID}[hidden]{display:none}
     #${TOGGLE_ID}:hover{background:#0f46b6}
     @media (max-width:759px){
-      #${ROOT_ID}{width:340px}
-      #${ROOT_ID} .asg-body{grid-template-columns:minmax(0,1fr);overflow:auto}
-      #${ROOT_ID} .asg-main-column,#${ROOT_ID} .asg-side-column{overflow:visible}
-      #${ROOT_ID} .asg-side-column{border-top:1px solid #e4e7ec;border-left:0}
-      #${ROOT_ID} .asg-side-tabs{position:static}
+      #${ROOT_ID}{width:min(360px,calc(100vw - 32px))}
+      #${ROOT_ID} .asg-body{
+        display:flex;
+        flex-direction:column;
+        overflow:auto;
+        -webkit-overflow-scrolling:touch;
+      }
+      #${ROOT_ID} .asg-main-column,
+      #${ROOT_ID} .asg-side-column{
+        flex:0 0 auto;
+        min-height:auto;
+        overflow:visible;
+      }
+      #${ROOT_ID} .asg-side-column{
+        border-top:1px solid #e4e7ec;
+        border-left:0;
+      }
+      #${ROOT_ID} .asg-side-tabs{
+        position:static;
+        top:auto;
+        z-index:auto;
+        margin:0;
+        padding:0 0 8px;
+      }
+      #${ROOT_ID} .asg-list{max-height:none}
     }
   `;
 
